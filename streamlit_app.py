@@ -10,7 +10,7 @@ import altair as alt
 from streamlit.components.v1 import html
 import json
 
-st.set_page_config(page_title=f"CNI-GAE-BI")
+st.set_page_config(page_title=f"CNI-INTERNACIONAL)
 
 # --- INÍCIO DO CÓDIGO CSS CORRIGIDO E COMPLETO ---
 st.markdown(
@@ -95,7 +95,4 @@ with st.sidebar:
     st.write("---")
 
 st.write("# **Inteligência Comercial 🌍**")
-
-
-
 # ... o restante do seu código (se houver, adicione aqui abaixo) ...
