@@ -66,9 +66,6 @@ st.markdown(
     .stSidebar hr { /* Seleciona a tag <hr> dentro da sidebar */
         border-top: 1px solid black; /* Define a cor da borda superior para preto */
     }
-
-
-    /* As regras para alinhar à esquerda foram removidas, resultando em conteúdo centralizado padrão. */
     </style>
     """,
     unsafe_allow_html=True
@@ -102,16 +99,8 @@ with st.sidebar:
     add_logo() # Sua logo aparece aqui
     st.write("---") # Linha separadora abaixo da logo (agora com CSS para ser preta)
 
-    # >>> NOVO POSICIONAMENTO: st.page_link AGORA ESTÁ AQUI <<<
-    # Os links das páginas (da pasta 'pages/') aparecerão AUTOMATICAMENTE AQUI ABAIXO,
-    # gerenciados pelo Streamlit. O nome do link será o nome do arquivo, ajustado.
-    # Ex: Para '1_Inteligencia_Comercial.py', o link será 'Inteligencia Comercial'.
-    # Para '2_Monitoramento_Desvio_de_Comercio.py', será 'Monitoramento Desvio de Comercio'.
-
-    # Para garantir que o link "Desvio de Comércio" esteja visível,
-    # ele precisa ser uma página na pasta 'pages/'.
-    # O st.page_link é para links manuais que aparecem *além* dos automáticos.
-    st.page_link("pages/monitoramentoDC.py", label="Desvio de Comércio", icon="📉") # Use o caminho completo do arquivo na pasta pages/
+    # >>> AQUI ESTÁ O st.page_link DENTRO DA BARRA LATERAL <<<
+    st.page_link("pages/monitoramentoDC.py", label="Desvio de Comércio", icon="📉")
 
     st.markdown(""" **☝️ Selecione um dos painéis acima!** """) # Um texto abaixo dos links
 
