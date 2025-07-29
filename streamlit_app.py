@@ -12,7 +12,7 @@ import json
 
 st.set_page_config(page_title=f"CNI-GAE-BI")
 
-# --- INÍCIO DO CÓDIGO CSS ---
+# --- INÍCIO DO CÓDIGO CSS MAIS ABRANGENTE ---
 st.markdown(
     """
     <style>
@@ -28,13 +28,22 @@ st.markdown(
         color: black; /* Define a cor do texto na barra lateral para preto */
     }
 
-    /* >>> Adição para personalizar a BARRA SUPERIOR FIXA <<< */
-    /* Esta classe pode mudar em futuras versões do Streamlit. */
-    /* Ela controla o cabeçalho superior onde estão "Share", ícones, etc. */
-    .st-emotion-cache-zt5ig8 {
-        background-color: #F0F2F6; /* Um cinza muito claro para o topo (quase branco) */
-        color: black; /* Garante que o texto (se houver) no topo seja preto */
+    /* >>> NOVO: Personaliza a BARRA SUPERIOR FIXA para ser BRANCA <<< */
+    /* Tentativa de sobrescrever o fundo do cabeçalho */
+    header {
+        background-color: white !important; /* Força o fundo branco para o elemento <header> */
     }
+
+    /* Pode ser necessário forçar o texto no cabeçalho também, se houver */
+    header * { /* Aplica a todos os elementos dentro do cabeçalho */
+        color: black !important; /* Força a cor do texto para preto */
+    }
+
+    /* Se a logo do Streamlit na barra superior ainda aparecer escura, podemos tentar esconder */
+    /* .st-emotion-cache-l9b3z5 { /* Exemplo de classe para o logo Streamlit */
+    /* visibility: hidden; */
+    /* } */
+
 
     /* Garante que os títulos (h1-h6) sejam pretos */
     h1, h2, h3, h4, h5, h6 {
@@ -50,14 +59,11 @@ st.markdown(
     a {
         color: black; /* Ou uma cor escura que se destaque, como #0000CC */
     }
-
-    /* Se houver elementos específicos (como botões, expanders) que não fiquem pretos
-       no texto, pode ser necessário adicionar regras mais específicas aqui. */
     </style>
     """,
     unsafe_allow_html=True
 )
-# --- FIM DO CÓDIGO CSS ---
+# --- FIM DO CÓDIGO CSS MAIS ABRANGENTE ---
 
 
 # Função logo CNI
@@ -67,16 +73,16 @@ def add_logo():
         width=280,
     )
 
-# Este bloco HTML/JavaScript é o que você adicionou.
-# Ele tenta manipular uma imagem com um SRC específico.
-# Se a logo da CNI (do portal) está aparecendo na barra superior,
-# pode ser devido a isso ou a algum outro estilo global que você já tinha.
+# Este bloco HTML/JavaScript que você adicionou.
+# Se a logo da CNI (do portal) está aparecendo na barra superior e você não quer,
+# é possível que este script ou outro elemento a esteja colocando lá.
+# O script abaixo tenta ajustar o estilo de uma imagem específica.
 html(
     """
     <script>
         var imgSrc = "https://staticportaldaindustria.azureedge.net/static/img/logos/novas/cni.svg";
         var imgElem = window.parent.document.querySelector(`img[src="${imgSrc}"]`);
-        if (imgElem) { /* Adicionado verificação para garantir que o elemento exista */
+        if (imgElem) {
             imgElem.style.width = '100%';
             imgElem.style.marginBottom = '-50px';
         }
@@ -90,7 +96,6 @@ with st.sidebar: # Isso cria um bloco na barra lateral
     add_logo() # CHAMANDO A FUNÇÃO AQUI PARA EXIBIR A LOGO NA BARRA LATERAL
     # Você pode adicionar outros elementos aqui que queira na barra lateral
     st.write("---") # Para adicionar uma linha separadora, por exemplo
-    # Se você tinha algum outro texto ou elemento na sidebar, adicione aqui.
     # Ex: st.markdown(""" **☝️ Selecione acima um dos dashboards disponíveis para começar!** """)
 
 st.write("# **Inteligência Comercial 📊**")
