@@ -12,15 +12,22 @@ import json
 
 
 st.set_page_config(page_title=f"cni-internacional")
-st.write("# **Inteligência Comercial 📊**")
 
 # Função logo CNI
 def add_logo():
-
     st.image(
         "https://staticportaldaindustria.azureedge.net/static/img/logos/atualizado/cni.svg",
         width=280,
     )
+
+with st.sidebar: # Isso cria um bloco na barra lateral
+    add_logo() # >>> CHAMANDO A FUNÇÃO AQUI PARA EXIBIR A LOGO NA BARRA LATERAL <<<
+    # Você pode adicionar outros elementos aqui que queira na barra lateral
+    st.write("---") # Para adicionar uma linha separadora, por exemplo
+
+st.write("# **Inteligência Comercial 📊**")
+
+# ... o restante do seu código ...
 
 
 
