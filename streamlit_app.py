@@ -52,17 +52,7 @@ st.markdown(
         color: black;
     }
 
-    /* >>> ALINHA O CONTEÚDO PRINCIPAL À ESQUERDA <<< */
-    .block-container {
-        padding-left: 1rem; /* Margem à esquerda para o conteúdo */
-        padding-right: 1rem; /* Mantém uma pequena margem à direita para não "colar" */
-        max-width: 100%; /* Garante que o container ocupe toda a largura disponível */
-    }
-    .main .block-container {
-        margin: 0; /* Remove a margem automática para centralizar */
-    }
-    </style>
-    """,
+   """,
     unsafe_allow_html=True # Apenas um unsafe_allow_html=True para todo o bloco
 )
 # --- FIM DO CÓDIGO CSS CORRIGIDO E COMPLETO ---
