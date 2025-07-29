@@ -96,6 +96,3 @@ with st.sidebar:
 
 st.write("# **Inteligência Comercial 🌍**")
 # ... o restante do seu código (se houver, adicione aqui abaixo) ...
-
-st.page_link("streamlit.app.py", label="Início", icon="")
-st.page_link("pages/monitoramentoDC.py", label="Desvio de Comércio", icon="📉")
