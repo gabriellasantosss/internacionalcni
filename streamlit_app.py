@@ -100,8 +100,8 @@ with st.sidebar:
     st.write("---") # Linha separadora abaixo da logo (agora com CSS para ser preta)
 
     # >>> AQUI ESTÁ O st.page_link DENTRO DA BARRA LATERAL <<<
-    st.page_link("pages/monitoramentoDC.py", label="Desvio de Comércio", icon="📉")
-
+if st.session_state.get("_page_name", "") != "monitoramentoDC":
+    st.page_link("monitoramentoDC", label="Desvio de Comércio", icon="📉")
     st.markdown(""" **☝️ Selecione um dos painéis acima!** """) # Um texto abaixo dos links
 
 # Conteúdo da sua página inicial (Home)
