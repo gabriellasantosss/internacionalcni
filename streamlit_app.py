@@ -96,4 +96,19 @@ with st.sidebar:
 
 st.write("# **Inteligência Comercial 🌍**")
 
+st.page_link("INICIO.py", label="Início", icon="🏠")
+
+    st.write("**Indicadores CNI**")
+    st.page_link("pages/ICEI_geral.py", label="ICEI Geral", icon="📉")
+    st.page_link("pages/ICEI_setorial.py", label="ICEI Setorial", icon="📉")
+    st.page_link("pages/SONDAGEM_INDUSTRIAL.py", label="Sondagem Industrial", icon="📉")
+    st.page_link(
+        "pages/SONDAGEM_CONSTRUCAO.py", label="Sondagem da Construção", icon="📉"
+    )
+    st.page_link(
+        "pages/INDICADORES_INDUSTRIAIS.py",
+        label="Indicadores Industriais",
+        icon="📉",
+    )
+
 # ... o restante do seu código (se houver, adicione aqui abaixo) ...
