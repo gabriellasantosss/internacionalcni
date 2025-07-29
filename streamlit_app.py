@@ -12,38 +12,30 @@ import json
 
 st.set_page_config(page_title=f"CNI-GAE-BI")
 
-# --- INÍCIO DO CÓDIGO CSS MAIS ABRANGENTE ---
+# --- INÍCIO DO CÓDIGO CSS CORRIGIDO E COMPLETO ---
 st.markdown(
     """
     <style>
     /* Define o fundo da área principal da aplicação como branco e texto padrão preto */
     .stApp {
         background-color: white;
-        color: black; /* Define a cor padrão do texto para preto */
+        color: black;
     }
 
     /* Define o fundo da barra lateral como CINZA e texto preto */
     .stSidebar {
         background-color: #DDDDDD; /* Cor cinza para a barra lateral */
-        color: black; /* Define a cor do texto na barra lateral para preto */
+        color: black;
     }
 
-    /* >>> NOVO: Personaliza a BARRA SUPERIOR FIXA para ser BRANCA <<< */
-    /* Tentativa de sobrescrever o fundo do cabeçalho */
+    /* Personaliza a BARRA SUPERIOR FIXA para ser CINZA, igual à sidebar */
     header {
-        background-color: #0E4194 !important; /* Força o fundo branco para o elemento <header> */
+        background-color: #DDDDDD !important; /* Cor cinza para o cabeçalho, igual à sidebar */
+        color: black !important;
     }
-
-    /* Pode ser necessário forçar o texto no cabeçalho também, se houver */
-    header * { /* Aplica a todos os elementos dentro do cabeçalho */
-        color: black !important; /* Força a cor do texto para preto */
+    header * {
+        color: black !important;
     }
-
-    /* Se a logo do Streamlit na barra superior ainda aparecer escura, podemos tentar esconder */
-    /* .st-emotion-cache-l9b3z5 { /* Exemplo de classe para o logo Streamlit */
-    /* visibility: hidden; */
-    /* } */
-
 
     /* Garante que os títulos (h1-h6) sejam pretos */
     h1, h2, h3, h4, h5, h6 {
@@ -55,15 +47,25 @@ st.markdown(
         color: black;
     }
 
-    /* Garante que os links também sejam pretos (opcional, pode querer uma cor diferente para links) */
+    /* Garante que os links também sejam pretos */
     a {
-        color: black; /* Ou uma cor escura que se destaque, como #0000CC */
+        color: black;
+    }
+
+    /* >>> ALINHA O CONTEÚDO PRINCIPAL À ESQUERDA <<< */
+    .block-container {
+        padding-left: 1rem; /* Margem à esquerda para o conteúdo */
+        padding-right: 1rem; /* Mantém uma pequena margem à direita para não "colar" */
+        max-width: 100%; /* Garante que o container ocupe toda a largura disponível */
+    }
+    .main .block-container {
+        margin: 0; /* Remove a margem automática para centralizar */
     }
     </style>
     """,
-    unsafe_allow_html=True
+    unsafe_allow_html=True # Apenas um unsafe_allow_html=True para todo o bloco
 )
-# --- FIM DO CÓDIGO CSS MAIS ABRANGENTE ---
+# --- FIM DO CÓDIGO CSS CORRIGIDO E COMPLETO ---
 
 
 # Função logo CNI
@@ -73,10 +75,6 @@ def add_logo():
         width=280,
     )
 
-# Este bloco HTML/JavaScript que você adicionou.
-# Se a logo da CNI (do portal) está aparecendo na barra superior e você não quer,
-# é possível que este script ou outro elemento a esteja colocando lá.
-# O script abaixo tenta ajustar o estilo de uma imagem específica.
 html(
     """
     <script>
@@ -92,12 +90,10 @@ html(
     height=0,
 )
 
-with st.sidebar: # Isso cria um bloco na barra lateral
-    add_logo() # CHAMANDO A FUNÇÃO AQUI PARA EXIBIR A LOGO NA BARRA LATERAL
-    # Você pode adicionar outros elementos aqui que queira na barra lateral
-    st.write("---") # Para adicionar uma linha separadora, por exemplo
-    # Ex: st.markdown(""" **☝️ Selecione acima um dos dashboards disponíveis para começar!** """)
+with st.sidebar:
+    add_logo()
+    st.write("---")
 
-st.write("# **Inteligência Comercial 📊**")
+st.write("# **Inteligência Comercial 🌍**")
 
 # ... o restante do seu código (se houver, adicione aqui abaixo) ...
