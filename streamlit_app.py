@@ -59,6 +59,20 @@ def add_logo():
         width=280,
     )
 
+html(
+        """
+    <script>
+        var imgSrc = "https://staticportaldaindustria.azureedge.net/static/img/logos/novas/cni.svg";
+        var imgElem = window.parent.document.querySelector(`img[src="${imgSrc}"]`);
+        imgElem.style.width = '100%';
+        imgElem.style.marginBottom = '-50px';
+
+    </script>
+    """,
+        width=0,
+        height=0,
+    )
+
 with st.sidebar: # Isso cria um bloco na barra lateral
     add_logo() # CHAMANDO A FUNÇÃO AQUI PARA EXIBIR A LOGO NA BARRA LATERAL
     # Você pode adicionar outros elementos aqui que queira na barra lateral
