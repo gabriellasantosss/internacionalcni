@@ -52,7 +52,7 @@ st.markdown(
         color: black;
     }
 
-    /* >>> NOVO: COR DO TEXTO DOS LINKS DA BARRA LATERAL PARA PRETO <<< */
+    /* >>> COR DO TEXTO DOS LINKS DA BARRA LATERAL PARA PRETO <<< */
     /* Este seletor visa os links de navegação gerados pelo Streamlit na sidebar */
     .st-emotion-cache-10o4u2c a { /* Esta classe pode variar entre versões do Streamlit */
         color: black !important;
@@ -60,6 +60,11 @@ st.markdown(
     /* Se o seletor acima não funcionar, tente também: */
     .st-emotion-cache-1l00yvg a { /* Outra classe comum para links na sidebar */
         color: black !important;
+    }
+
+    /* Regra para a linha horizontal (HR) na sidebar */
+    .stSidebar hr { /* Seleciona a tag <hr> dentro da sidebar */
+        border-top: 1px solid black; /* Define a cor da borda superior para preto */
     }
 
 
@@ -95,17 +100,23 @@ html(
 
 with st.sidebar:
     add_logo() # Sua logo aparece aqui
-    st.write("---") # Linha separadora abaixo da logo
+    st.write("---") # Linha separadora abaixo da logo (agora com CSS para ser preta)
 
+    # >>> NOVO POSICIONAMENTO: st.page_link AGORA ESTÁ AQUI <<<
     # Os links das páginas (da pasta 'pages/') aparecerão AUTOMATICAMENTE AQUI ABAIXO,
     # gerenciados pelo Streamlit. O nome do link será o nome do arquivo, ajustado.
     # Ex: Para '1_Inteligencia_Comercial.py', o link será 'Inteligencia Comercial'.
     # Para '2_Monitoramento_Desvio_de_Comercio.py', será 'Monitoramento Desvio de Comercio'.
 
-    st.markdown(""" **☝️ Selecione um dos dashboards abaixo!** """) # Um texto abaixo dos links
+    # Para garantir que o link "Desvio de Comércio" esteja visível,
+    # ele precisa ser uma página na pasta 'pages/'.
+    # O st.page_link é para links manuais que aparecem *além* dos automáticos.
+    st.page_link("pages/Monitoramento_Desvio_de_Comercio.py", label="Desvio de Comércio", icon="📉") # Use o caminho completo do arquivo na pasta pages/
+
+    st.markdown(""" **☝️ Selecione um dos painéis acima!** """) # Um texto abaixo dos links
 
 # Conteúdo da sua página inicial (Home)
-st.write("# **Bem-vindo à Plataforma CNI-Internacional!**")
-st.write("Use a barra lateral para navegar entre os dashboards.")
+st.write("# **Plataforma CNI-Internacional!**")
+st.write("Use a barra lateral para navegar entre os painéis.")
 
 # ... o restante do seu código da página inicial, se houver ...
