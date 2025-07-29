@@ -31,7 +31,7 @@ st.markdown(
     /* >>> NOVO: Personaliza a BARRA SUPERIOR FIXA para ser BRANCA <<< */
     /* Tentativa de sobrescrever o fundo do cabeçalho */
     header {
-        background-color: white !important; /* Força o fundo branco para o elemento <header> */
+        background-color: #DDDDDD !important; /* Força o fundo branco para o elemento <header> */
     }
 
     /* Pode ser necessário forçar o texto no cabeçalho também, se houver */
