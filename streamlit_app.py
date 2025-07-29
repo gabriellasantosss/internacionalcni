@@ -75,21 +75,6 @@ def add_logo():
         width=280,
     )
 
-html(
-    """
-    <script>
-        var imgSrc = "https://staticportaldaindustria.azureedge.net/static/img/logos/novas/cni.svg";
-        var imgElem = window.parent.document.querySelector(`img[src="${imgSrc}"]`);
-        if (imgElem) {
-            imgElem.style.width = '100%';
-            imgElem.style.marginBottom = '-50px';
-        }
-    </script>
-    """,
-    width=0,
-    height=0,
-)
-
 with st.sidebar:
     add_logo()
     st.write("---")
