@@ -111,7 +111,7 @@ with st.sidebar:
     # Para garantir que o link "Desvio de Comércio" esteja visível,
     # ele precisa ser uma página na pasta 'pages/'.
     # O st.page_link é para links manuais que aparecem *além* dos automáticos.
-    st.page_link("pages/Monitoramento_Desvio_de_Comercio.py", label="Desvio de Comércio", icon="📉") # Use o caminho completo do arquivo na pasta pages/
+    st.page_link("pages/monitoramentoDC.py", label="Desvio de Comércio", icon="📉") # Use o caminho completo do arquivo na pasta pages/
 
     st.markdown(""" **☝️ Selecione um dos painéis acima!** """) # Um texto abaixo dos links
 
