@@ -10,21 +10,21 @@ import altair as alt
 from streamlit.components.v1 import html
 import json
 
-st.set_page_config(page_title=f"cni-internacional")
+st.set_page_config(page_title=f"CNI-GAE-BI")
 
-# --- INÍCIO DO CÓDIGO PARA DEIXAR TUDO BRANCO E TEXTO PRETO ---
+# --- INÍCIO DO CÓDIGO CSS ---
 st.markdown(
     """
     <style>
-    /* Define o fundo de toda a aplicação Streamlit como branco e texto padrão preto */
+    /* Define o fundo da área principal da aplicação como branco e texto padrão preto */
     .stApp {
         background-color: white;
         color: black; /* Define a cor padrão do texto para preto */
     }
 
-    /* Define o fundo da barra lateral como branco */
+    /* Define o fundo da barra lateral como CINZA e texto preto */
     .stSidebar {
-        background-color: white;
+        background-color: #DDDDDD; /* Cor cinza para a barra lateral */
         color: black; /* Define a cor do texto na barra lateral para preto */
     }
 
@@ -49,7 +49,7 @@ st.markdown(
     """,
     unsafe_allow_html=True
 )
-# --- FIM DO CÓDIGO PARA DEIXAR TUDO BRANCO E TEXTO PRETO ---
+# --- FIM DO CÓDIGO CSS ---
 
 
 # Função logo CNI
@@ -69,4 +69,3 @@ with st.sidebar: # Isso cria um bloco na barra lateral
 st.write("# **Inteligência Comercial 📊**")
 
 # ... o restante do seu código (se houver, adicione aqui abaixo) ...
-
