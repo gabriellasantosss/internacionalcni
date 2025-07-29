@@ -10,7 +10,16 @@ import altair as alt
 from streamlit.components.v1 import html
 import json
 
-
+st.markdown(
+    """
+    <style>
+    .stApp {
+        background-color: white;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
 st.set_page_config(page_title=f"cni-internacional")
 
 # Função logo CNI
