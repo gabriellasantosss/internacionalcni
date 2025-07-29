@@ -10,7 +10,7 @@ import altair as alt
 from streamlit.components.v1 import html
 import json
 
-st.set_page_config(page_title=f"CNI-INTERNACIONAL)
+st.set_page_config(page_title=f"CNI-INTERNACIONAL")
 
 # --- INÍCIO DO CÓDIGO CSS CORRIGIDO E COMPLETO ---
 st.markdown(
