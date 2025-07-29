@@ -28,6 +28,14 @@ st.markdown(
         color: black; /* Define a cor do texto na barra lateral para preto */
     }
 
+    /* >>> Adição para personalizar a BARRA SUPERIOR FIXA <<< */
+    /* Esta classe pode mudar em futuras versões do Streamlit. */
+    /* Ela controla o cabeçalho superior onde estão "Share", ícones, etc. */
+    .st-emotion-cache-zt5ig8 {
+        background-color: #F0F2F6; /* Um cinza muito claro para o topo (quase branco) */
+        color: black; /* Garante que o texto (se houver) no topo seja preto */
+    }
+
     /* Garante que os títulos (h1-h6) sejam pretos */
     h1, h2, h3, h4, h5, h6 {
         color: black;
@@ -59,19 +67,24 @@ def add_logo():
         width=280,
     )
 
+# Este bloco HTML/JavaScript é o que você adicionou.
+# Ele tenta manipular uma imagem com um SRC específico.
+# Se a logo da CNI (do portal) está aparecendo na barra superior,
+# pode ser devido a isso ou a algum outro estilo global que você já tinha.
 html(
-        """
+    """
     <script>
         var imgSrc = "https://staticportaldaindustria.azureedge.net/static/img/logos/novas/cni.svg";
         var imgElem = window.parent.document.querySelector(`img[src="${imgSrc}"]`);
-        imgElem.style.width = '100%';
-        imgElem.style.marginBottom = '-50px';
-
+        if (imgElem) { /* Adicionado verificação para garantir que o elemento exista */
+            imgElem.style.width = '100%';
+            imgElem.style.marginBottom = '-50px';
+        }
     </script>
     """,
-        width=0,
-        height=0,
-    )
+    width=0,
+    height=0,
+)
 
 with st.sidebar: # Isso cria um bloco na barra lateral
     add_logo() # CHAMANDO A FUNÇÃO AQUI PARA EXIBIR A LOGO NA BARRA LATERAL
