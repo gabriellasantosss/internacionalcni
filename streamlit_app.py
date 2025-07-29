@@ -12,7 +12,7 @@ import json
 
 st.set_page_config(page_title=f"CNI-INTERNACIONAL")
 
-# --- INÍCIO DO CÓDIGO CSS CORRIGIDO E COMPLETO ---
+# --- INÍCIO DO CÓDIGO CSS ---
 st.markdown(
     """
     <style>
@@ -52,10 +52,23 @@ st.markdown(
         color: black;
     }
 
-   """,
-    unsafe_allow_html=True # Apenas um unsafe_allow_html=True para todo o bloco
+    /* >>> NOVO: COR DO TEXTO DOS LINKS DA BARRA LATERAL PARA PRETO <<< */
+    /* Este seletor visa os links de navegação gerados pelo Streamlit na sidebar */
+    .st-emotion-cache-10o4u2c a { /* Esta classe pode variar entre versões do Streamlit */
+        color: black !important;
+    }
+    /* Se o seletor acima não funcionar, tente também: */
+    .st-emotion-cache-1l00yvg a { /* Outra classe comum para links na sidebar */
+        color: black !important;
+    }
+
+
+    /* As regras para alinhar à esquerda foram removidas, resultando em conteúdo centralizado padrão. */
+    </style>
+    """,
+    unsafe_allow_html=True
 )
-# --- FIM DO CÓDIGO CSS CORRIGIDO E COMPLETO ---
+# --- FIM DO CÓDIGO CSS ---
 
 
 # Função logo CNI
@@ -65,9 +78,34 @@ def add_logo():
         width=280,
     )
 
-with st.sidebar:
-    add_logo()
-    st.write("---")
+html(
+    """
+    <script>
+        var imgSrc = "https://staticportaldaindustria.azureedge.net/static/img/logos/novas/cni.svg";
+        var imgElem = window.parent.document.querySelector(`img[src="${imgSrc}"]`);
+        if (imgElem) {
+            imgElem.style.width = '100%';
+            imgElem.style.marginBottom = '-50px';
+        }
+    </script>
+    """,
+    width=0,
+    height=0,
+)
 
-st.write("# **Inteligência Comercial 🌍**")
-# ... o restante do seu código (se houver, adicione aqui abaixo) ...
+with st.sidebar:
+    add_logo() # Sua logo aparece aqui
+    st.write("---") # Linha separadora abaixo da logo
+
+    # Os links das páginas (da pasta 'pages/') aparecerão AUTOMATICAMENTE AQUI ABAIXO,
+    # gerenciados pelo Streamlit. O nome do link será o nome do arquivo, ajustado.
+    # Ex: Para '1_Inteligencia_Comercial.py', o link será 'Inteligencia Comercial'.
+    # Para '2_Monitoramento_Desvio_de_Comercio.py', será 'Monitoramento Desvio de Comercio'.
+
+    st.markdown(""" **☝️ Selecione um dos dashboards abaixo!** """) # Um texto abaixo dos links
+
+# Conteúdo da sua página inicial (Home)
+st.write("# **Bem-vindo à Plataforma CNI-Internacional!**")
+st.write("Use a barra lateral para navegar entre os dashboards.")
+
+# ... o restante do seu código da página inicial, se houver ...
